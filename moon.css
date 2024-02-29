@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url('./sky.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.moon{
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow:  20px 20px 60px #0a0b0b,
+             -20px -20px 60px #0e0f0f;
+    position: relative;
+}
+.moon > div{
+    width: 200%;
+    height: 100%;
+    background-image: url('./moon.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: spin 12s linear alternate infinite;
+    transform: translateX(-80px);
+}
+.moon::after{
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 150%;
+    height: 150%;
+    border-radius: 50%;
+    box-shadow: inset -16px -38px 22px 10px;
+    
+}
+@keyframes spin {
+    to{
+        transform: translateX(-130px);
+    }
+    
+}
