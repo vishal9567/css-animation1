@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #edf1ed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.loader{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    gap: 20px;
+    --running: running;
+}
+.loader .loader-div{
+    flex: 1;
+    position: relative;
+    border-radius: 30px;
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.05), -15px -15px 20px rgba(0, 0, 0, 0.05),
+    inset 5px 5px 5px rgba(0, 0, 0, 0.05),inset 5px 5px 5px rgba(255, 255, 255, 0.05);
+    background: linear-gradient(to bottom , rgba(0,0,0,0.05),#edf1ed);
+    overflow: hidden;
+}
+.loader .loader-div::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.05), -15px -15px 20px rgba(0, 0, 0, 0.05),
+    inset 5px 5px 5px rgba(0, 0, 0, 0.05),inset 5px 5px 5px rgba(255, 255, 255, 0.05);
+    background: linear-gradient(to bottom , rgba(0,0,0,0.05),#edf1ed);
+}
+.loader .loader-div::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 65px;
+    height: 65px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: inset -5px -5px 5px rgba(31, 142, 183, 0.4),0 280px 0 250px rgba(36, 30, 200, 0.4);
+    transform: translateY(336px);
+    animation: dance 2s ease infinite;
+    animation-delay: calc(0.2s * var(--i));
+    animation-play-state: var(--running);
+}
+@keyframes dance{
+    0%{
+        transform: translateY(336px);
+        filter: hue-rotate(200deg);
+    }
+    50%{
+        transform: translateY(0);
+        filter: hue-rotate(50deg);
+
+    }
+    100%{
+        transform: translateY(336px);
+        filter: hue-rotate(0);
+
+    }
+}
+.btn{
+    position: absolute;
+    bottom: 40px;
+    border: none;
+    outline: none;
+    background-color: black;
+    border-radius: 10px;
+    padding: 5px 10px;
+    color: white;
+    text-transform: capitalize;
+    cursor: pointer;
+}
